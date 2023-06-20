@@ -35,12 +35,7 @@ def grid_sample(input, grid):
 #----------------------------------------------------------------------------
 
 def _should_use_custom_op():
-    if not enabled:
-        return False
-    if LooseVersion(torch.__version__) >= LooseVersion('1.7.0'):
-        return True
-    warnings.warn(f'grid_sample_gradfix not supported on PyTorch {torch.__version__}. Falling back to torch.nn.functional.grid_sample().')
-    return False
+    return enabled
 
 #----------------------------------------------------------------------------
 
